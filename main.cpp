@@ -8,13 +8,12 @@ const double PI = 3.141592653589793;
 
 double fA(double alpha, double x);
 double fB(double x, double y);
-double fractional_part(int a, double b);
 
 int main() {
     SetConsoleOutputCP(65001);
     SetConsoleCP(65001);
 
-    double alpha, x, y, B, result;
+    double alpha, x, y, B;
     int A;
 
     cout << "Введіть значення alpha (в градусах): ";
@@ -30,12 +29,10 @@ int main() {
     else {
         A = (int)fA(alpha, x);
         B = fB(x, y);
-        result = fractional_part(A, B);
 
         cout << fixed << setprecision(4);
         cout << "A = " << A << endl;
         cout << "B = " << B << endl;
-        cout << "A - B = " << result << endl;
     }
     return 0;
 }
@@ -54,10 +51,4 @@ double fB(double x, double y) {
     double numerator2 = pow(fabs(y - x), 3);
     double denominator2 = pow(x, 1.0 / 5.0);
     return numerator1 / denominator1 + numerator2 / denominator2;
-}
-
-double fractional_part(int a, double b) {
-    double diff = a - b;
-    int intPart = (int)diff;
-    return diff - intPart;
 }
